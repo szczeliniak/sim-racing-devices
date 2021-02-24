@@ -1,12 +1,12 @@
 #include "Handbrake.h"
 
-Handbrake::Handbrake(uint8_t pin)
+Handbrake::Handbrake(uint8_t pin) : pin(pin)
 {
-    this->pin = pin;
     joystick = new Joystick_();
 }
 
-Handbrake::~Handbrake() {
+Handbrake::~Handbrake()
+{
     delete joystick;
 }
 

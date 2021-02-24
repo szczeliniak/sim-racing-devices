@@ -1,11 +1,7 @@
 #include "LogitechShifter.h"
 
-LogitechShifter::LogitechShifter(uint8_t axisX, uint8_t axisY, uint8_t reverseButton)
+LogitechShifter::LogitechShifter(uint8_t axisX, uint8_t axisY, uint8_t reverseButton) : axisX(axisX), axisY(axisY), reverseButton(reverseButton)
 {
-    this->axisX = axisX;
-    this->axisY = axisY;
-    this->reverseButton = reverseButton;
-
     joystick = new Joystick_();
 }
 

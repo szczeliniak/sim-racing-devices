@@ -1,12 +1,13 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-class Controller {
+class Controller
+{
 
-    public:
-        virtual void setup() = 0;
-        virtual void loop() = 0;
-
+public:
+    virtual ~Controller() {}
+    virtual void setup() = 0;
+    virtual void loop() = 0;
 };
 
 #endif
