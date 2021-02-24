@@ -1,7 +1,7 @@
 #include <Arduino.h>
-#include "logitech-shifter/LogitechShifter.h"
-#include "sequential-shifter/SequentialShifter.h"
-#include "handbrake/Handbrake.h"
+#include "LogitechShifter.h"
+#include "SequentialShifter.h"
+#include "Handbrake.h"
 
 #define LOGITECH_SHIFTER_AXIS_X A0
 #define LOGITECH_SHIFTER_AXIS_Y A2
