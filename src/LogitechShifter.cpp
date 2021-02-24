@@ -5,6 +5,13 @@ LogitechShifter::LogitechShifter(uint8_t axisX, uint8_t axisY, uint8_t reverseBu
     this->axisX = axisX;
     this->axisY = axisY;
     this->reverseButton = reverseButton;
+
+    joystick = new Joystick_();
+}
+
+LogitechShifter::~LogitechShifter()
+{
+    delete joystick;
 }
 
 void LogitechShifter::setup()
@@ -20,7 +27,7 @@ void LogitechShifter::setup()
     }
 
     b[DI_MODE] = 0;
-    Joystick.begin();
+    joystick->begin();
 }
 
 void LogitechShifter::loop()
@@ -72,7 +79,7 @@ void LogitechShifter::loop()
     {
         gear = _gear_;
         desactivar();
-        Joystick.setButton(gear - 1, HIGH);
+        joystick->setButton(gear - 1, HIGH);
     }
 }
 
@@ -80,6 +87,6 @@ void LogitechShifter::desactivar()
 {
     for (int i = 0; i <= 10; i++)
     {
-        Joystick.setButton(i, LOW);
+        joystick->setButton(i, LOW);
     }
 }

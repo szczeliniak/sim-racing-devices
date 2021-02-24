@@ -8,11 +8,12 @@ class Handbrake : public Controller
 {
 
 private:
-    Joystick_ Joystick;
+    Joystick_* joystick;
     uint8_t pin;
 
 public:
     Handbrake(uint8_t pin);
+    ~Handbrake();
     void setup();
     void loop();
 };

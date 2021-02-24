@@ -4,13 +4,21 @@ SequentialShifter::SequentialShifter(uint8_t up, uint8_t down)
 {
     this->up = up;
     this->down = down;
+
+    joystick = new Joystick_();
 }
+
+SequentialShifter::~SequentialShifter()
+{
+    delete joystick;
+}
+
 void SequentialShifter::setup()
 {
     pinMode(up, INPUT_PULLUP);
     pinMode(down, INPUT_PULLUP);
 
-    Joystick.begin();
+    joystick->begin();
 };
 
 void SequentialShifter::loop()
@@ -19,6 +27,6 @@ void SequentialShifter::loop()
     upValue = digitalRead(up);
     downValue = digitalRead(down);
 
-    Joystick.setButton(0, !upValue);
-    Joystick.setButton(1, !downValue);
+    joystick->setButton(0, !upValue);
+    joystick->setButton(1, !downValue);
 };

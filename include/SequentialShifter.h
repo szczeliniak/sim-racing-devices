@@ -8,7 +8,7 @@ class SequentialShifter : public Controller
 {
 
 private:
-    Joystick_ Joystick;
+    Joystick_* joystick;
     uint8_t up;
     uint8_t down;
     int upValue = 0;
@@ -16,6 +16,7 @@ private:
 
 public:
     SequentialShifter(uint8_t up, uint8_t down);
+    ~SequentialShifter();
     void setup();
     void loop();
 };

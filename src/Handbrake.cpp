@@ -3,13 +3,17 @@
 Handbrake::Handbrake(uint8_t pin)
 {
     this->pin = pin;
+    joystick = new Joystick_();
+}
+
+Handbrake::~Handbrake() {
+    delete joystick;
 }
 
 void Handbrake::setup()
 {
     pinMode(pin, INPUT);
-
-    Joystick.begin();
+    joystick->begin();
 }
 
 void Handbrake::loop()
@@ -17,6 +21,6 @@ void Handbrake::loop()
     int pot = analogRead(pin);
     int mapped = map(pot, 0, 1023, 0, 255);
     {
-        Joystick.setThrottle(mapped);
+        joystick->setThrottle(mapped);
     }
 }

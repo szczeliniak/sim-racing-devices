@@ -11,21 +11,26 @@
 #define HANDBRAKE_PIN 4
 #define DELAY 20
 
-LogitechShifter logitechShifter(LOGITECH_SHIFTER_AXIS_X, LOGITECH_SHIFTER_AXIS_Y, LOGITECH_SHIFTER_REVERSE_BUTTON);
-SequentialShifter sequentialShifter(SEQUENTIAL_SHIFTER_UP, SEQUENTIAL_SHIFTER_DOWN);
-Handbrake handbrake(HANDBRAKE_PIN);
+LogitechShifter* logitechShifter;
+SequentialShifter* sequentialShifter;
+Handbrake* handbrake;
 
 void setup()
 {
-  logitechShifter.setup();
-  sequentialShifter.setup();
-  handbrake.setup();
+  logitechShifter = new LogitechShifter(LOGITECH_SHIFTER_AXIS_X, LOGITECH_SHIFTER_AXIS_Y, LOGITECH_SHIFTER_REVERSE_BUTTON);
+  logitechShifter->setup();
+
+  sequentialShifter = new SequentialShifter(SEQUENTIAL_SHIFTER_UP, SEQUENTIAL_SHIFTER_DOWN);
+  sequentialShifter->setup();
+
+  handbrake = new Handbrake(HANDBRAKE_PIN);
+  handbrake->setup();
 }
 
 void loop()
 {
-  logitechShifter.loop();
-  sequentialShifter.loop();
-  handbrake.loop();
+  logitechShifter->loop();
+  sequentialShifter->loop();
+  handbrake->loop();
   delay(DELAY);
 }
