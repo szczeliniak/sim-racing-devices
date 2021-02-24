@@ -1,9 +1,16 @@
 #include <Arduino.h>
+#include "logitech-shifter/LogitechShifter.h"
 
-void setup() {
-  // put your setup code here, to run once:
+LogitechShifter logitechShifter(A0, A2, 2);
+
+void setup()
+{
+  logitechShifter.setup();
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+  logitechShifter.loop();
+
+  delay(50);
 }
