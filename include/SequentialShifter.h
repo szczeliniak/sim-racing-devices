@@ -2,8 +2,9 @@
 #define SEQUENTIAL_SHITER_H
 
 #include <Joystick.h>
+#include "Controller.h"
 
-class SequentialShifter
+class SequentialShifter : public Controller
 {
 
 private:

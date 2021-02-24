@@ -2,6 +2,7 @@
 #define LOGITECH_SHITER_H
 
 #include <Joystick.h>
+#include "Controller.h"
 
 // H-shifter mode analog axis thresholds
 #define HS_XAXIS_12 400
@@ -13,7 +14,7 @@
 #define DI_REVERSE 1
 #define DI_MODE 3
 
-class LogitechShifter
+class LogitechShifter : public Controller
 {
 
 private:

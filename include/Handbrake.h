@@ -2,8 +2,9 @@
 #define HANDBRAKE_SHITER_H
 
 #include <Joystick.h>
+#include "Controller.h"
 
-class Handbrake
+class Handbrake : public Controller
 {
 
 private:
