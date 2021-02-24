@@ -6,31 +6,35 @@
 #define LOGITECH_SHIFTER_AXIS_X A0
 #define LOGITECH_SHIFTER_AXIS_Y A2
 #define LOGITECH_SHIFTER_REVERSE_BUTTON 2
+
 #define SEQUENTIAL_SHIFTER_UP 8
 #define SEQUENTIAL_SHIFTER_DOWN 5
-#define HANDBRAKE_PIN 4
-#define DELAY 20
 
-LogitechShifter* logitechShifter;
-SequentialShifter* sequentialShifter;
-Handbrake* handbrake;
+#define HANDBRAKE_PIN 4
+
+#define DELAY 20
+#define NUMBER_OF_CONTROLLERS 3
+
+Controller *controllers[NUMBER_OF_CONTROLLERS];
 
 void setup()
 {
-  logitechShifter = new LogitechShifter(LOGITECH_SHIFTER_AXIS_X, LOGITECH_SHIFTER_AXIS_Y, LOGITECH_SHIFTER_REVERSE_BUTTON);
-  logitechShifter->setup();
+  controllers[0] = new LogitechShifter(LOGITECH_SHIFTER_AXIS_X, LOGITECH_SHIFTER_AXIS_Y, LOGITECH_SHIFTER_REVERSE_BUTTON);
+  controllers[1] = new SequentialShifter(SEQUENTIAL_SHIFTER_UP, SEQUENTIAL_SHIFTER_DOWN);
+  controllers[2] = new Handbrake(HANDBRAKE_PIN);
 
-  sequentialShifter = new SequentialShifter(SEQUENTIAL_SHIFTER_UP, SEQUENTIAL_SHIFTER_DOWN);
-  sequentialShifter->setup();
-
-  handbrake = new Handbrake(HANDBRAKE_PIN);
-  handbrake->setup();
+  for (int i = 0; i < NUMBER_OF_CONTROLLERS; i++)
+  {
+    controllers[i]->setup();
+  }
 }
 
 void loop()
 {
-  logitechShifter->loop();
-  sequentialShifter->loop();
-  handbrake->loop();
+  for (int i = 0; i < NUMBER_OF_CONTROLLERS; i++)
+  {
+    controllers[i]->loop();
+  }
+
   delay(DELAY);
 }
