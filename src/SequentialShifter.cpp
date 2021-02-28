@@ -24,6 +24,8 @@ void SequentialShifter::loop()
     upValue = digitalRead(up);
     downValue = digitalRead(down);
 
+    Serial.print(upValue);
+
     joystick->setButton(0, !upValue);
     joystick->setButton(1, !downValue);
 };
