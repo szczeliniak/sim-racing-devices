@@ -73,6 +73,7 @@ void LogitechShifter::loop()
 
     if (_gear_ != gear)
     {
+        Serial.print(x);
         gear = _gear_;
         desactivar();
         joystick->setButton(gear - 1, HIGH);
