@@ -18,7 +18,7 @@ class LogitechShifter : public Controller
 {
 
 private:
-    Joystick_* joystick;
+    Joystick_ *joystick;
     uint8_t axisX;
     uint8_t axisY;
     uint8_t reverseButton;
@@ -29,7 +29,7 @@ private:
     void desactivar();
 
 public:
-    LogitechShifter(uint8_t axisX, uint8_t axisY, uint8_t reverseButton);
+    LogitechShifter(uint8_t reportId, uint8_t axisX, uint8_t axisY, uint8_t reverseButton);
     ~LogitechShifter();
     void setup();
     void loop();

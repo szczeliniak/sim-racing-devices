@@ -1,8 +1,8 @@
 #include "Handbrake.h"
 
-Handbrake::Handbrake(uint8_t pin) : pin(pin)
+Handbrake::Handbrake(uint8_t reportId, uint8_t pin) : pin(pin)
 {
-    joystick = new Joystick_();
+    joystick = new Joystick_(reportId);
 }
 
 Handbrake::~Handbrake()

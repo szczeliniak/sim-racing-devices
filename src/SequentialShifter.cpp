@@ -1,8 +1,8 @@
 #include "SequentialShifter.h"
 
-SequentialShifter::SequentialShifter(uint8_t up, uint8_t down) : up(up), down(down)
+SequentialShifter::SequentialShifter(uint8_t reportId, uint8_t up, uint8_t down) : up(up), down(down)
 {
-    joystick = new Joystick_();
+    joystick = new Joystick_(reportId);
 }
 
 SequentialShifter::~SequentialShifter()
