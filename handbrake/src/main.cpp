@@ -1,9 +1,23 @@
 #include <Arduino.h>
+#include "Handbrake.h"
+
+#define HANDBRAKE_REPORT_ID 0x05
+#define HANDBRAKE_PIN A4
+
+#define DELAY 10
+
+Handbrake *handbrake;
 
 void setup() {
-  // put your setup code here, to run once:
+
+  handbrake = new Handbrake(HANDBRAKE_REPORT_ID, HANDBRAKE_PIN);
+  handbrake->setup();
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
+  handbrake->loop();
+  delay(DELAY);
+
 }
