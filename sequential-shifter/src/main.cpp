@@ -1,9 +1,25 @@
 #include <Arduino.h>
 
+#include "SequentialShifter.h"
+
+#define SEQUENTIAL_SHIFTER_REPORT_ID 0x04
+#define SEQUENTIAL_SHIFTER_UP 6
+#define SEQUENTIAL_SHIFTER_DOWN 5
+
+#define DELAY 10
+
+SequentialShifter *shifter;
+
 void setup() {
-  // put your setup code here, to run once:
+
+  shifter = new SequentialShifter(SEQUENTIAL_SHIFTER_REPORT_ID, SEQUENTIAL_SHIFTER_UP, SEQUENTIAL_SHIFTER_DOWN);
+  shifter->setup();
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
+  shifter->loop();
+  delay(DELAY);
+  
 }
