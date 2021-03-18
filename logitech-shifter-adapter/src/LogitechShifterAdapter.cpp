@@ -2,7 +2,7 @@
 
 LogitechShifterAdapter::LogitechShifterAdapter(uint8_t reportId, uint8_t axisX, uint8_t axisY, uint8_t reverseButton) : axisX(axisX), axisY(axisY), reverseButton(reverseButton)
 {
-    joystick = new Joystick_(reportId);
+    joystick = new Joystick_(reportId, JOYSTICK_TYPE_GAMEPAD, 8, 0, false, false, false, false, false, false, false, false, false, false, false);
 }
 
 LogitechShifterAdapter::~LogitechShifterAdapter()
