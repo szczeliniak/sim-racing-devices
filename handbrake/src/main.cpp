@@ -2,7 +2,7 @@
 #include "Handbrake.h"
 
 #define HANDBRAKE_REPORT_ID 0x05
-#define HANDBRAKE_PIN A4
+#define HANDBRAKE_PIN A2
 
 #define DELAY 10
 
