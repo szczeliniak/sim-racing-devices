@@ -2,7 +2,7 @@
 
 LogitechShifterAdapter::LogitechShifterAdapter(uint8_t reportId, uint8_t axisX, uint8_t axisY, uint8_t reverseButton) : axisX(axisX), axisY(axisY), reverseButton(reverseButton)
 {
-    joystick = new Joystick_(reportId, JOYSTICK_TYPE_GAMEPAD, 8, 0, false, false, false, false, false, false, false, false, false, false, false);
+    joystick = new Joystick_(reportId, JOYSTICK_TYPE_GAMEPAD, 7, 0, false, false, false, false, false, false, false, false, false, false, false);
 }
 
 LogitechShifterAdapter::~LogitechShifterAdapter()
@@ -39,7 +39,7 @@ void LogitechShifterAdapter::loop()
 
     if (_isreverse == 1)
     {
-        _gear_ = 8;
+        _gear_ = 7;
         b[DI_REVERSE] = 1;
     }
     else
@@ -76,7 +76,6 @@ void LogitechShifterAdapter::loop()
 
     if (_gear_ != gear)
     {
-        Serial.print(x);
         gear = _gear_;
         desactivar();
         joystick->setButton(gear - 1, HIGH);
