@@ -3,8 +3,8 @@
 #include "SequentialShifter.h"
 
 #define SEQUENTIAL_SHIFTER_REPORT_ID 0x04
-#define SEQUENTIAL_SHIFTER_UP 6
-#define SEQUENTIAL_SHIFTER_DOWN 5
+#define SEQUENTIAL_SHIFTER_UP 4
+#define SEQUENTIAL_SHIFTER_DOWN 2
 
 #define DELAY 10
 

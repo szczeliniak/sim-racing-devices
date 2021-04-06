@@ -2,7 +2,7 @@
 
 SequentialShifter::SequentialShifter(uint8_t reportId, uint8_t up, uint8_t down) : up(up), down(down)
 {
-    joystick = new Joystick_(reportId);
+    joystick = new Joystick_(reportId, JOYSTICK_TYPE_GAMEPAD, 2, 0, false, false, false, false, false, false, false, false, false, false, false);
 }
 
 SequentialShifter::~SequentialShifter()
